@@ -2,6 +2,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, r2_score
 from DatoStudente import DatoStudente
 from StudentPredictor import StudentPredictor
+from DataVisualization import DataVisualization
 
 # 1. Dati
 dataset = DatoStudente("Student_Performance.csv")
@@ -31,3 +32,10 @@ predictor.predict(
     sleep_hours=7,
     papers=3
 )
+
+viz = DataVisualization("Student_Performance.csv", model, dataset)
+viz.plot_distribution()
+viz.plot_correlations()
+viz.plot_heatmap()
+viz.plot_feature_importance()
+viz.plot_real_vs_predicted()
